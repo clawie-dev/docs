@@ -9,7 +9,7 @@ It is not:
 - a model provider
 - a CI/CD replacement
 
-It runs on your own infrastructure (Docker, optionally with [Outcall](https://github.com/clawie-dev/outcall) for egress isolation) and the work it produces (code, specs, deploys, marketing copy) belongs entirely to you.
+It runs on your own infrastructure (Docker, optionally with [Outcall](https://github.com/outcall-dev/root) for egress isolation on Linux) and the work it produces (code, specs, deploys, marketing copy) belongs entirely to you.
 
 ## The four explicitly-layered subsystems
 
@@ -25,19 +25,32 @@ Clawie is intentionally not a monolith. The architecture has four swappable laye
 
 Most "agent frameworks" mash these together. Clawie keeps them apart so each can be swapped or hardened independently.
 
-## What v0.1.0 ships
+## What v1.0 ships
 
-The smallest possible vertical slice through all five layers: a durable task is created, executed by a built-in intent handler, audited, and accessible via CLI and REST. No LLMs, no Docker, no Outcall yet — those land in later phases. This is the foundation everything else extends.
+The full vertical: every intent runs in an ephemeral Docker container, real LLM
+calls (Anthropic / OpenAI) cost-track to the ledger, a default-deny policy gates
+sensitive intents through an approval queue, and a web dashboard reads the same
+state as the CLI and REST API. On Linux, [Outcall](https://github.com/outcall-dev/root)
+adds host-level egress isolation per team.
 
 ```bash
 node ace task:run --intent echo --payload '"world"'
 # → task <uuid> → completed
 #   result: {"message":"hello: world"}
+
+ANTHROPIC_API_KEY=… node ace task:run --intent chat --payload '{"prompt":"hi"}'
+# → task <uuid> → completed (container spawned, LLM called, cost recorded)
 ```
 
-The next phases add Docker isolation (v0.2), real LLM routing (v0.3), policy + approvals (v0.4), Outcall egress (v0.5), dashboard (v0.6), agent files + self-modification (v0.7), team flows (v0.8), schedulers (v0.9), and finally the full software agency pipeline + Linear/Jira drivers + backup + upgrades + webhooks + marketplace (v1.0).
+The ten implementation phases (v0.1.0 → v1.0.0) layered the capabilities in:
+durable lifecycle → container execution → LLM intents → policy + approvals →
+Outcall egress → dashboard → agent files + self-mod → teams → scheduler → ship-grade
+(backup/verify, webhooks, docs).
 
-See [PHASES.md](https://github.com/clawie-dev/specs/blob/main/PHASES.md) for the full implementation roadmap, [ROADMAP.md](https://github.com/clawie-dev/specs/blob/main/ROADMAP.md) for the spec-delivery phases, and [ARCHITECTURE.md](https://github.com/clawie-dev/specs/blob/main/ARCHITECTURE.md) for the system design.
+See [PHASES.md](https://github.com/clawie-dev/specs/blob/main/PHASES.md) for the
+implementation history, [ROADMAP.md](https://github.com/clawie-dev/specs/blob/main/ROADMAP.md)
+for the spec-delivery phases, and [ARCHITECTURE.md](https://github.com/clawie-dev/specs/blob/main/ARCHITECTURE.md)
+for the system design.
 
 ## Key principles (from the constitution)
 
