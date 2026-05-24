@@ -14,20 +14,21 @@ For canonical formal specifications, see [`clawie-dev/specs`](https://github.com
 
 For the framework itself, see [`clawie-dev/clawie`](https://github.com/clawie-dev/clawie).
 
-## Layout (planned)
+## Layout
+
+What ships in v1.0:
 
 ```
 docs/
-├── concepts/        # what is Clawie, layered architecture, why
-├── install/         # installation paths
-├── operator/        # day-to-day operator guides
-├── teams/           # team config + starter packs
-├── agents/          # agent definition, self-modification, benchmarks
-├── plugins/         # skills, drivers, marketplace
-├── security/        # Outcall integration, credentials, hardening
-├── reference/       # CLI reference, config reference, error codes
-└── faq/
+├── concepts/    # what-is-clawie.md — the layered architecture, why
+├── install/     # quick-start.md — five-minute setup
+└── reference/   # api.md, cli.md — REST + Ace command surface
 ```
+
+Planned additions (not yet written): operator guides, team config,
+agent self-modification, plugin/skill authoring, security hardening
+notes, FAQ. Open issues against `clawie-dev/docs` if you want to
+prioritise one of these — or write one and PR it in.
 
 ## License
 
