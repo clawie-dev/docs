@@ -56,8 +56,9 @@ Response: `201 Created`
 }
 ```
 
-Tasks subject to a policy rule return `200 OK` with `status: "approval_pending"`
-instead of executing immediately. Approve or deny via `POST /v1/tasks/:id/approval`.
+Tasks subject to a policy rule are still created (`201 Created`) but come back
+with `status: "approval_pending"` instead of executing immediately. Approve or
+deny via `POST /v1/tasks/:id/approval`.
 
 Errors:
 
