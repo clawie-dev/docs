@@ -99,6 +99,10 @@ node ace cron:create nightly-sweep \
   --payload '{}'
 ```
 
+Pass `--team <slug>` to scope the job's tasks to a team; those tasks then
+inherit the team's egress isolation when Outcall is enabled (Linux +
+`CLAWIE_EGRESS=outcall`).
+
 ## `node ace scheduler:tick`
 
 One iteration of the scheduler. Fires any due cron jobs and sweeps expired
