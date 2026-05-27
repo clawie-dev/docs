@@ -123,13 +123,18 @@ Errors:
 
 ## Task lifecycle
 
+A task is created in `queued`, or in `approval_pending` when a policy rule
+gates its intent. Allowed transitions (from → to):
+
 ```
-queued → claimed → running → completed
-                          → failed
-       → approval_pending → queued
-                         → failed (denied)
-       → aborted          → timed_out
+approval_pending → queued | failed | aborted
+queued           → claimed | aborted
+claimed          → running | aborted | timed_out
+running          → completing | completed | failed | aborted | timed_out
+completing       → completed | failed
 ```
+
+Terminal states (no outgoing transition): `completed`, `failed`, `aborted`, `timed_out`.
 
 Every transition writes a row to the hash-chained audit log. Verify the
 chain with `node ace audit:verify` or the programmatic
