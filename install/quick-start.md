@@ -68,4 +68,4 @@ for what landed in each tag from v0.1.0 → v1.0.0.
 - **`node: Unknown file extension ".ts"`** — you're on Node < 24. Upgrade via `fnm install 24 && fnm use 24`.
 - **`better-sqlite3 was compiled against a different Node.js version`** — run `npm rebuild better-sqlite3` after switching Node versions.
 - **Tests hang locally on macOS** — kill the tmp DB: `rm -f tmp/db.sqlite3*` and re-run.
-- **`docker: command not found` when running `task:run`** — Docker is required from v0.2 onward. Install it, or pass `--in-process` for the dev-only in-process executor.
+- **`docker: command not found` when running `task:run`** — Docker is required from v0.2 onward (every intent runs in `clawie/agent-runtime`). Install and start Docker. v0.1.0's in-process executor was retired in v0.2, so there is no in-process fallback for container intents (`echo`, `chat`).
