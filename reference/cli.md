@@ -22,14 +22,14 @@ commands (`migration:run`, `make:*`, `generate:key`, etc.) are also available.
 Create a durable task with the given intent and execute it in `clawie/agent-runtime`.
 
 ```
-node ace task:run --intent <name> [--payload <json>] [--idempotencyKey <key>] [--json]
+node ace task:run --intent <name> [--payload <json>] [--idempotency-key <key>] [--json]
 ```
 
 | Flag | Description |
 |---|---|
 | `--intent` | Required. Intent name resolved against the registered handlers (`echo`, `chat`, `agent.self_mod`, plus any registered by loaded agents). |
 | `--payload` | JSON string; defaults to `null`. Examples: `'"world"'`, `'{"foo":"bar"}'`, `'42'`. |
-| `--idempotencyKey` | Re-runs with the same key return the same task. |
+| `--idempotency-key` | Re-runs with the same key return the same task. |
 | `--json` | Machine-readable JSON output instead of human-readable. |
 
 Exit codes: `0` success, `1` failure or invalid args.
