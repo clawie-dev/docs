@@ -78,7 +78,7 @@ List tasks, newest first.
 | Query param | Description |
 |---|---|
 | `limit` | Max rows (default 50, max 500) |
-| `status` | Filter: `queued`, `running`, `approval_pending`, `completed`, `failed`, `aborted`, `timed_out` |
+| `status` | Filter: `approval_pending`, `queued`, `claimed`, `running`, `completing`, `completed`, `failed`, `aborted`, `timed_out` |
 
 ## Approvals
 
