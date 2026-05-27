@@ -43,7 +43,7 @@ open http://localhost:3333/dashboard
 |---|---|
 | Durable task lifecycle with hash-chained audit | `node ace task:run --intent echo --payload '"hi"'` then `GET /v1/tasks/:id` |
 | Container execution (read-only, network-none) | every intent — `task:run` spawns `clawie/agent-runtime` |
-| Real LLM intent (Anthropic / OpenAI) | `ANTHROPIC_API_KEY=… node ace task:run --intent chat --payload '{"prompt":"hi"}'` |
+| Real LLM intent (Anthropic / OpenAI) | `ANTHROPIC_API_KEY=… node ace task:run --intent chat --payload '{"provider":"anthropic","model":"claude-sonnet-4-6","messages":[{"role":"user","content":"hi"}]}'` |
 | Default-deny policy + approval queue | configure rules in `config/policy.ts`, then `node ace task:approve --id <task> --decision approve` |
 | Outcall egress (Linux) | `CLAWIE_EGRESS=outcall npm run dev` |
 | Dashboard | `http://localhost:3333/dashboard` — Tasks / Approvals / Audit / Egress / Self-Mods |

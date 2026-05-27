@@ -38,7 +38,7 @@ node ace task:run --intent echo --payload '"world"'
 # → task <uuid> → completed
 #   result: {"message":"hello: world"}
 
-ANTHROPIC_API_KEY=… node ace task:run --intent chat --payload '{"prompt":"hi"}'
+ANTHROPIC_API_KEY=… node ace task:run --intent chat --payload '{"provider":"anthropic","model":"claude-sonnet-4-6","messages":[{"role":"user","content":"hi"}]}'
 # → task <uuid> → completed (container spawned, LLM called, cost recorded)
 ```
 

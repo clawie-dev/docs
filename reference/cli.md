@@ -36,7 +36,7 @@ Exit codes: `0` success, `1` failure or invalid args.
 
 ```bash
 node ace task:run --intent echo --payload '"hello"'
-ANTHROPIC_API_KEY=… node ace task:run --intent chat --payload '{"prompt":"hi"}'
+ANTHROPIC_API_KEY=… node ace task:run --intent chat --payload '{"provider":"anthropic","model":"claude-sonnet-4-6","messages":[{"role":"user","content":"hi"}]}'
 ```
 
 ## `node ace task:approve`
