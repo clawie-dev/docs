@@ -146,7 +146,7 @@ end-to-end on a snapshot.
 Several surfaces are deliberately CLI-only or dashboard-only in v1.0:
 
 - **Audit log query** — read via SQLite (`audit_events` table) or the dashboard `/dashboard` Audit tab.
-- **Cost ledger** — `cost_ledger_entries` table, dashboard cost view.
+- **Cost ledger** — `cost_ledger` table, dashboard cost view.
 - **Agents / teams CRUD** — `node ace agents:load`, `node ace teams:create`.
 - **Cron / scheduler** — `node ace cron:create`, `node ace scheduler:tick`.
 - **Backup** — `node ace backup:create` / `backup:verify`.
