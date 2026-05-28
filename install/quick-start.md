@@ -35,7 +35,7 @@ open http://localhost:3333/dashboard
 - Node ≥ 24
 - SQLite (default) — bundled via better-sqlite3, no separate install
 - Docker (required for container execution — every intent runs in `clawie/agent-runtime`)
-- Optional: [Outcall](https://github.com/outcall-dev/root) for network-level egress isolation on Linux (set `CLAWIE_EGRESS=outcall`)
+- Optional: [Outcall](https://github.com/outcall-dev/outcall) for network-level egress isolation on Linux (set `CLAWIE_EGRESS=outcall`)
 
 ## What v1.0 ships
 

@@ -9,7 +9,7 @@ It is not:
 - a model provider
 - a CI/CD replacement
 
-It runs on your own infrastructure (Docker, optionally with [Outcall](https://github.com/outcall-dev/root) for egress isolation on Linux) and the work it produces (code, specs, deploys, marketing copy) belongs entirely to you.
+It runs on your own infrastructure (Docker, optionally with [Outcall](https://github.com/outcall-dev/outcall) for egress isolation on Linux) and the work it produces (code, specs, deploys, marketing copy) belongs entirely to you.
 
 ## The four explicitly-layered subsystems
 
@@ -30,7 +30,7 @@ Most "agent frameworks" mash these together. Clawie keeps them apart so each can
 The full vertical: every intent runs in an ephemeral Docker container, real LLM
 calls (Anthropic / OpenAI) cost-track to the ledger, a default-deny policy gates
 sensitive intents through an approval queue, and a web dashboard reads the same
-state as the CLI and REST API. On Linux, [Outcall](https://github.com/outcall-dev/root)
+state as the CLI and REST API. On Linux, [Outcall](https://github.com/outcall-dev/outcall)
 adds host-level egress isolation per team.
 
 ```bash
