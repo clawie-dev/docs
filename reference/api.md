@@ -137,8 +137,9 @@ completing       → completed | failed
 Terminal states (no outgoing transition): `completed`, `failed`, `aborted`, `timed_out`.
 
 Every transition writes a row to the hash-chained audit log. Verify the
-chain with `node ace audit:verify` or the programmatic
-`await auditLogger().verifyChain()`.
+chain programmatically with `await auditLogger().verifyChain()`, or run
+`node ace backup:verify <snapshot>`, which re-verifies the chain
+end-to-end on a snapshot.
 
 ## Not exposed as REST
 

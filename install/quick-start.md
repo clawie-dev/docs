@@ -51,7 +51,7 @@ open http://localhost:3333/dashboard
 | Teams + multi-agent | `node ace teams:create my-team` then scope tasks to the team |
 | Scheduler + crons | `node ace cron:create nightly-sweep --schedule '5 * * * *' --intent ...` then host-cron calls `node ace scheduler:tick` |
 | Backup + verify | `node ace backup:create ./snap.sqlite3 && node ace backup:verify ./snap.sqlite3` |
-| Audit-chain verify (CLI) | `node ace audit:verify` |
+| Audit-chain verify (live DB, programmatic) | `await auditLogger().verifyChain()` |
 
 ## What v1.0 deliberately defers
 
